@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aether Brew - Искусство кофе</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Для иконок (телефон, локация, WhatsApp) используем Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/dist/index.umd.js"></script>
+    <style>
+        /* Глубокая кофейная палитра для премиум-бренда */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1A120F; /* Очень темно-коричневый/кофейный фон */
+            color: #F8F4E3; /* Сливочный, теплый цвет текста */
+            scroll-behavior: smooth; /* Плавная прокрутка для навигации */
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 1.5rem;
+        }
+        .text-golden {
+            /* Золотистый градиент для заголовков */
+            background-image: linear-gradient(to right, #DAA520, #FFD700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+        .card {
+            background-color: #382e2c; /* Более светлый кофейный для карточек */
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+        /* Стиль для кнопки с эффектом пульсации */
+        .pulse-button {
+            box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7);
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(255, 215, 0, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
+        }
+        /* Анимация для элементов меню */
+        .menu-item {
+            transition: all 0.3s ease;
+        }
+        .menu-item:hover {
+            background-color: #4b3e39; /* Темнее при наведении */
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+        .menu-price {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #FFD700; /* Золотой цвет для цены */
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- Hero Section -->
+    <header class="py-16 md:py-24 text-center relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <!-- Декоративные частицы -->
+        </div>
+
+        <div class="container relative z-10">
+            <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-4">
+                <span class="text-golden">Aether Brew</span>
+            </h1>
+            <h2 class="text-2xl md:text-3xl font-medium mb-8 text-gray-300">
+                Искусство кофе, созданное для вдохновения.
+            </h2>
+            
+            <div class="mt-12 mb-16 relative">
+                <!-- Плейсхолдер для главного изображения. -->
+                <img src="https://placehold.co/900x500/382e2c/FFD700?text=Premium+Coffee+Blend" 
+                     alt="Изображение премиального кофе" 
+                     class="w-full max-w-2xl h-auto rounded-xl shadow-2xl mx-auto border-4 border-amber-600/50 transform transition-transform duration-500 hover:scale-[1.01]">
+                
+                <!-- Кнопка с прокруткой к меню. Добавлен ID для JavaScript обработки. -->
+                <a href="#menu" id="menu-button" class="pulse-button absolute bottom-[-30px] left-1/2 transform -translate-x-1/2 bg-amber-600 text-gray-900 font-bold py-4 px-10 rounded-full hover:bg-amber-500 transition-colors duration-300 shadow-xl">
+                    Открыть Меню
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Секция Меню и Цены (Детальный Прайс-лист) -->
+    <section id="menu" class="py-20 bg-[#2c201d]">
+        <div class="container">
+            <h3 class="text-3xl md:text-4xl font-bold text-center mb-16 text-golden">Наше Детальное Меню</h3>
+            
+            <!-- Меню: Кофе -->
+            <div class="mb-12">
+                <h4 class="text-3xl font-bold mb-6 border-l-4 border-amber-600 pl-4">☕ Кофейные Напитки</h4>
+                <div class="space-y-3">
+                    <div class="hidden md:grid grid-cols-4 gap-4 text-amber-400 font-semibold uppercase text-sm pb-2 border-b border-amber-600/50">
+                        <span class="col-span-2">Название</span>
+                        <span>Объем/Детали</span>
+                        <span class="text-right">Цена (₸)</span>
+                    </div>
+
+                    <div class="menu-item grid grid-cols-2 md:grid-cols-4 gap-4 items-center card p-4">
+                        <span class="col-span-2 font-semibold">Эспрессо "Aether"</span>
+                        <span class="text-gray-400 text-sm md:text-base">Двойной шот, 40мл</span>
+                        <span class="menu-price text-right">690 ₸</span>
+                    </div>
+                    <div class="menu-item grid grid-cols-2 md:grid-cols-4 gap-4 items-center card p-4">
+                        <span class="col-span-2 font-semibold">Капучино</span>
+                        <span class="text-gray-400 text-sm md:text-base">M (300мл) / L (450мл)</span>
+                        <span class="menu-price text-right">1290 - 1490 ₸</span>
+                    </div>
+                    <div class="menu-item grid grid-cols-2 md:grid-cols-4 gap-4 items-center card p-4">
+                        <span class="col-span-2 font-semibold">Латте "Молочная Звезда"</span>
+                        <span class="text-gray-400 text-sm md:text-base">Ванильный сироп, 350мл</span>
+                        <span class="menu-price text-right">1390 ₸</span>
+                    </div>
+                    <div class="menu-item grid grid-cols-2 md:grid-cols-4 gap-4 items-center card p-4">
+                        <span class="col-span-2 font-semibold">Флэт Уайт (Flat White)</span>
+                        <span class="text-gray-400 text-sm md:text-base">Крепкий, 250мл</span>
+                        <span class="menu-price text-right">1490 ₸</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Меню: Десерты -->
+            <div>
+                <h4 class="text-3xl font-bold mb-6 border-l-4 border-amber-600 pl-4">🍰 Десерты и Сладости</h4>
+                <div class="space-y-3">
+                    <div class="hidden md:grid grid-cols-4 gap-4 text-amber-400 font-semibold uppercase text-sm pb-2 border-b border-amber-600/50">
+                        <span class="col-span-2">Название</span>
+                        <span>Описание</span>
+                        <span class="text-right">Цена (₸)</span>
+                    </div>
+                    <div class="menu-item grid grid-cols-2 md:grid-cols-4 gap-4 items-center card p-4">
+                        <span class="col-span-2 font-semibold">Синнабон с орехами</span>
+                        <span class="text-gray-400 text-sm md:text-base">Теплый, с глазурью</span>
+                        <span class="menu-price text-right">1290 ₸</span>
+                    </div>
+                    <div class="menu-item grid grid-cols-2 md:grid-cols-4 gap-4 items-center card p-4">
+                        <span class="col-span-2 font-semibold">Моти (Ассорти)</span>
+                        <span class="text-gray-400 text-sm md:text-base">Японский десерт, 3 шт.</span>
+                        <span class="menu-price text-right">2690 ₸</span>
+                    </div>
+                    <div class="menu-item grid grid-cols-2 md:grid-cols-4 gap-4 items-center card p-4">
+                        <span class="col-span-2 font-semibold">Классический Чизкейк</span>
+                        <span class="text-gray-400 text-sm md:text-base">С ягодами</span>
+                        <span class="menu-price text-right">1890 ₸</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <!-- Кнопка для оформления доставки через WhatsApp -->
+                <a href="https://wa.me/77470543600?text=Здравствуйте,%20хочу%20оформить%20доставку%20кофе%20Aether%20Brew." 
+                   target="_blank" 
+                   class="inline-flex items-center bg-green-600 text-white font-bold py-3 px-8 rounded-full hover:bg-green-700 transition-colors duration-300 shadow-lg transform hover:scale-[1.05]">
+                    <i class="ph ph-whatsapp-logo text-2xl mr-3"></i>
+                    Оформить доставку (WhatsApp)
+                </a>
+                <p class="text-sm text-gray-500 mt-2">Наши менеджеры ответят в течение 5 минут.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция Локации и Контакты -->
+    <section id="contacts" class="py-16">
+        <div class="container">
+            <h3 class="text-3xl md:text-4xl font-bold text-center mb-12 text-golden">Наши Локации и Контакты</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Локация 1: Алматы -->
+                <div class="card p-6 text-center transform hover:scale-[1.02] transition-transform duration-300">
+                    <i class="ph ph-map-pin-line text-5xl text-amber-500 mb-4"></i>
+                    <h4 class="text-xl font-bold mb-2">Алматы</h4>
+                    <p class="text-gray-400">ул. Достык, 109 (ТЦ "Grand Plaza")</p>
+                    <p class="text-gray-500 text-sm mt-2">Ежедневно: 08:00 – 23:00</p>
+                    <p class="text-sm font-semibold text-amber-400 mt-3">Полный ассортимент, зона коворкинга.</p>
+                </div>
+                <!-- Локация 2: Астана -->
+                <div class="card p-6 text-center transform hover:scale-[1.02] transition-transform duration-300">
+                    <i class="ph ph-map-pin-line text-5xl text-amber-500 mb-4"></i>
+                    <h4 class="text-xl font-bold mb-2">Астана</h4>
+                    <p class="text-gray-400">пр. Мангилик Ел, 25 (БЦ "Astana Tower")</p>
+                    <p class="text-gray-500 text-sm mt-2">Пн-Пт: 09:00 – 22:00, Сб-Вс: 10:00 – 21:00</p>
+                    <p class="text-sm font-semibold text-amber-400 mt-3">Только кофе и десерты на вынос.</p>
+                </div>
+                <!-- Локация 3: Шымкент -->
+                <div class="card p-6 text-center transform hover:scale-[1.02] transition-transform duration-300">
+                    <i class="ph ph-map-pin-line text-5xl text-amber-500 mb-4"></i>
+                    <h4 class="text-xl font-bold mb-2">Шымкент</h4>
+                    <p class="text-gray-400">ул. Кунаева, 12 (Рядом с парком)</p>
+                    <p class="text-gray-500 text-sm mt-2">Ежедневно: 09:00 – 23:00</p>
+                    <p class="text-sm font-semibold text-amber-400 mt-3">Просторная терраса, бесплатный Wi-Fi.</p>
+                </div>
+            </div>
+            
+            <!-- Блок для звонка -->
+            <div class="mt-12 text-center">
+                <p class="text-2xl font-semibold mb-4">
+                    <i class="ph ph-phone-call text-amber-500 mr-3"></i> 
+                    Сделать заказ по телефону:
+                </p>
+                <!-- Ссылка для звонка (работает на телефоне) -->
+                <a href="tel:+77470543600" class="inline-block text-3xl md:text-4xl font-extrabold text-amber-400 hover:text-amber-300 transition-colors duration-300">
+                    +7 (747) 054-36-00
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="py-6 text-center border-t border-[#382e2c] bg-[#1A120F]">
+        <div class="container">
+            <p class="text-sm text-gray-500">
+                &copy; 2024 Aether Brew. Все права защищены.
+            </p>
+        </div>
+    </footer>
+
+    <!-- ВАЖНЫЙ JAVASCRIPT ДЛЯ ПЛАВНОЙ ПРОКРУТКИ -->
+    <script>
+        // 1. Убираем "белую вспышку" при загрузке, устанавливая фон через JS (дополнительно к CSS)
+        document.body.style.backgroundColor = '#1A120F';
+
+        // 2. Исправляем баг с перезагрузкой кнопки "Открыть Меню"
+        const menuButton = document.getElementById('menu-button');
+        if (menuButton) {
+            menuButton.addEventListener('click', function(e) {
+                e.preventDefault(); // Останавливаем стандартное поведение ссылки (перезагрузку)
+                
+                const targetId = this.getAttribute('href'); // Получаем #menu
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    // Используем метод для плавной прокрутки
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
+
